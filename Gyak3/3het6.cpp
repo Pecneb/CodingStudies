@@ -1,32 +1,51 @@
 #include <iostream>
-#define TOMBELEM 5
+#define ARRAYLEN 5
 using namespace std;
 
 int main() {
-    int tomb[TOMBELEM], i, shift;
-    cout << "Adjon meg 5 szamot.\n";
-    i=0;
-    while(i < TOMBELEM) {
-        cout << i+1 << "szam: ";
-        cin >> tomb[i];
+    int num_array[ARRAYLEN], i, shift;
+    cout << "Irjon be " << ARRAYLEN << " db szamot.\n";
+    i = 0;
+    while(i < ARRAYLEN){
+    	cin >> num_array[i];
         i++;
     }
-    do {
-        cout << "Most adja meg mennyivel akarja eltolni a szamokat a tombon belul, "
-                "ha pozitiv szam eseten jobbra, negativ eseten balra tolodik el.";
-        cin >> shift;
-        if(shift > 0 && shift != TOMBELEM && shift > 0) {
-            if(shift > TOMBELEM) {
-                i=0;
-                while(i < TOMBELEM) {
-                        
-                    i++; 
-                }
-            } else {
-
-            }
-        }
-    } while(shift != 0);
+    cout << "Ija be mennyivel akarja eltolni a szamokat a tombon belul, "
+            "ha balra akarja akkor < 0 szamot adjon meg, "
+            "ha jobbra akkor > 0 szamot adjon meg, "
+            "kilepeshez pedig 0-at.\n";
+    cin >> shift;
     
+    if(shift>0){
+        int temp;
+        i = 0;
+        while(i < shift) {
+            temp = num_array[ARRAYLEN-1];
+            for(int j = ARRAYLEN-2; j>=0; j--) {
+            	num_array[j+1] = num_array[j];
+            }
+            num_array[0] = temp;
+            i++;
+        }
+        for(int k = 0; k < ARRAYLEN; k++) {
+            cout << num_array[k] << '\t';
+        }
+        cout << endl;
+    } else if(shift<0){
+        int temp;
+        i = 0;
+        while(i<abs(shift)) {
+            temp = num_array[0];
+            for(int j = 1; j < ARRAYLEN; j++) {
+                num_array[j-1] = num_array[j];
+            }
+            num_array[ARRAYLEN-1] = temp;
+            i++;
+        }
+        for(int k = 0; k < ARRAYLEN; k++) {
+            cout << num_array[k] << '\t';
+        }
+        cout << endl;
+    }
     return 0;
 }
