@@ -8,7 +8,7 @@ int main() {
     string egyenlet;
     cout << "Adja meg a sikgorbe egyenletet: "; cin >> egyenlet;
     for(int i=0; i<egyenlet.length(); i++) {
-
+        
     }
     return 0;
 }
