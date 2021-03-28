@@ -91,19 +91,16 @@ void level_three() {
     }
     delete[] count;
 }
-/*
-// a binaris kereses vagy a rednezesben hiba van, 0-akat ad vissza terminalban!!!!!!!
-counter* binker(counter* c, int key, int start, int end) {
 
+int binker(counter* c, int key, int start, int end) {
     if(start > end) {
-        counter* new_counter = new counter;
-        new_counter->num = 0;
-        new_counter->db = 0;
-        return new_counter;
+        cerr << "Number not found" << endl;
+        return -1;
     } else {
         int mid = (start+end)/2;
         if((c+mid)->num == key) {
-            return (c+mid);
+            cerr << "Found at: " << mid << endl;
+            return mid;
         } else {
             if((c+mid)->num < key) {
                 return binker(c, key, mid+1, end);
@@ -113,8 +110,9 @@ counter* binker(counter* c, int key, int start, int end) {
         }
     }
 }
-// a binaris kereses vagy a rednezesben hiba van, 0-akat ad vissza terminalban!!!!!!!
+
 void rendez(counter* c, int meret) {
+    cerr << "Rendezes..." << endl;
     int i, j, k;
     for(i=0; i<meret; i++) {
         k=i;
@@ -122,11 +120,11 @@ void rendez(counter* c, int meret) {
             if((*(c+k)).num > (*(c+j)).num) {
                 k = j;
             }
-            if(k>i) {
+        }
+        if(k>i) {
                 counter swap = *(c+k);
                 *(c+k) = *(c+i);
                 *(c+i) = swap;
-            }
         }
     }
 }
@@ -139,22 +137,23 @@ void level_four() {
     int szam;
     cout << "Adjon meg szamokat tetszoleges intervallumban 0 vegjelig!\n";    
     while(cout << "Kovetkezo szam: ", cin >> szam, szam!=0) {
-        rendez(count, meret);
-        counter* proba = binker(count, szam, 0, meret);
-        if(proba->num == 0) {
-            counter* new_count = new counter[meret*2];
-            hiba(count);
-            for(int j=0; j<kind; j++) {
-                new_count[j] = count[j];
+        if(kind>1) rendez(count, meret);
+        int talalt = binker(count, szam, 0, meret);
+        if(talalt == -1) {
+            if(meret == kind) {
+                counter* new_count = new counter[meret*2];
+                for(int i=0; i<kind; i++) {
+                    new_count[i] = count[i];
+                }
+                delete[] count;
+                count = new_count;
             }
-            meret *= 2;
-            delete[] count;
-            count = new_count;
             count[kind].num = szam;
             count[kind].db = 1;
             kind++;
+            cerr << kind << " kind of numbers." << endl;
         } else {
-            proba->db++;
+            (count+talalt)->db++;
         }
     }
     cout << "A megadott szamok mennyisege:\n";
@@ -163,7 +162,7 @@ void level_four() {
     }
     delete[] count;
 }
-*/
+
 int main() {
     int level;
     cout << "Melyik szintet akarja kitolni? (1/2/3/4)";
@@ -178,13 +177,9 @@ int main() {
         case 3:
             level_three();
             break;
-        /*case 4:
+        case 4:
             level_four();
             break;
-        // 5-os szint meg nem kerult implementalasra 
-        case 5:
-            level_five();
-            break; */
     }
     return 0;
 }
