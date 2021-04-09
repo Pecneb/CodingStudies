@@ -9,7 +9,7 @@ void beolvas(telep* t) {
 
 void kiir(const telep* t) {
   cout << "Telephely helysege: " << t->helyseg
-       << "\nAlapitas datuma: " << t->alapitas;
+       << "\nAlapitas datuma: ";
   kiir(&t->alapitas);
   cout << "\nUtolso ev arbevelete: " << t->bevetel;
 }

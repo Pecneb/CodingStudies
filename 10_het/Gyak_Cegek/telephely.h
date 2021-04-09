@@ -2,7 +2,7 @@
 #define TELEPHELY
 
 #include "datum.h"
-#include <iostring>
+#include <iostream>
 using namespace std;
 
 struct telep {
