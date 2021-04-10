@@ -1,8 +1,9 @@
 #include "szemely.h"
 #include <iostream>
 
-#define SZEMELYEK_SZAMA 2
 using namespace std;
+
+#define SZEMELYEK_SZAMA 2
 
 string legtobbtanora(const szemely* sz, int napszama) {
     int max = sz->orarend[napszama].tanoraszam;
@@ -17,7 +18,7 @@ string legtobbtanora(const szemely* sz, int napszama) {
 }
 
 int main() {
-    szemely szemelyek[SZEMELYEK_SZAMA];
+    /* szemely* szemelyek new szemely[SZEMELYEK_SZAMA];
     for(int i=0; i<SZEMELYEK_SZAMA; i++) {
         beker(szemelyek + i);
     }
@@ -40,5 +41,9 @@ int main() {
                 torol(&szemelyek[i].orarend[j]);
         }
     }
+    delete[] szemelyek;
+     */
+    szemely* sz = new szemely;
+    beker(sz);   
     return 0;
 }

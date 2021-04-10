@@ -2,6 +2,8 @@
 #define SZEMELY
 
 #include "nap.h"
+#include "tanora.h"
+#include "idopont.h"
 #include <iostream>
 
 struct szemely {

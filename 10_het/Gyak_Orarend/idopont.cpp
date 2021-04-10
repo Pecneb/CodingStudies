@@ -3,7 +3,6 @@
 void beker(idopont* i) {
     cout << "\nOra: "; cin >> i->ora;
     cout << "\nPerc: "; cin >> i->perc;
-
 }
 
 int osszehasonlit(const idopont* ido1, const idopont* ido2) {

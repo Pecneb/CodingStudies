@@ -1,9 +1,10 @@
 #ifndef TANORA
-#define TANORA 
+#define TANORA
 
 #include "idopont.h"
 #include <iostream>
 
+using namespace std;
 
 struct tanora {
     string nev;

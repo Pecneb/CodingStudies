@@ -2,12 +2,13 @@
 #define NAP
 
 #include "tanora.h"
+#include "idopont.h"
 #include <iostream>
 
 
 struct nap {
     int tanoraszam;
-    tanora* tanorak = new tanora[tanoraszam];
+    tanora* tanorak;
 };
 
 void beker(nap*);
