@@ -5,10 +5,10 @@
 #include "tanora.h"
 #include "idopont.h"
 #include <iostream>
-
+#define NAPOKSZAMA 1
 struct szemely {
     string nev;
-    nap orarend[5];
+    nap orarend[NAPOKSZAMA];
 };
 
 void beker(szemely*);

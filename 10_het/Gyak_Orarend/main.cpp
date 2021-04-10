@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define SZEMELYEK_SZAMA 2
+#define SZEMELYEK_SZAMA 1
 
 string legtobbtanora(const szemely* sz, int napszama) {
     int max = sz->orarend[napszama].tanoraszam;
@@ -18,32 +18,33 @@ string legtobbtanora(const szemely* sz, int napszama) {
 }
 
 int main() {
-    /* szemely* szemelyek new szemely[SZEMELYEK_SZAMA];
+    szemely* szemelyek = new szemely[SZEMELYEK_SZAMA];
     for(int i=0; i<SZEMELYEK_SZAMA; i++) {
-        beker(szemelyek + i);
+      cout << i+1 << ". szemely:\n";
+      beker(szemelyek + i);
     }
-    int nap;
-    cout << "Nap: "; cin >> nap;
-    cout << legtobbtanora(szemelyek, nap) << " nak van a legtobb oraja aznap!\n";
-    idopont idop;
-    beker(&idop);
+    int napbe;
+    cout << "Adja meg a nap szamat: ";
+    cin.ignore();
+    cin >> napbe;
+    napbe = napbe-1;
+    idopont idobe;
+    cout << "Adja meg az idopontot!\n";
+    beker(&idobe);
+    cout << "Az a szemely akinek a legtobb oraja van a megadott napon: " << legtobbtanora(szemelyek, napbe) << '\n';
+
     for(int i=0; i<SZEMELYEK_SZAMA; i++) {
-        if(szabad(szemelyek + i, nap, &idop)) {
-           cout << szemelyek[i].nev << " eppen szabad ebben az idopontban!\n"; 
-        } else {
-           for(int j=0; j<szemelyek[i].orarend[nap].tanoraszam; j++) {
-               cout << i+1 << ". tanora: " << szemelyek[i].orarend[nap].tanorak[j].nev << '\n';
-           } 
+      cout << szemelyek[i].nev << ": ";
+      if(szabad(&szemelyek[i], napbe, &idobe)) {
+        cout << "szabad a megadott idoben.\n";
+      } else {
+        for(int j=0; j<szemelyek[i].orarend[napbe].tanoraszam; j++) {
+          if(utkozes(&szemelyek[i].orarend[napbe].tanorak[j], &idobe)) {
+            cout << szemelyek[i].orarend[napbe].tanorak[j].nev << " oraval utkozik a megadott idopont.\n";   
+          }
         }
-    }
-    for(int i=0; i<SZEMELYEK_SZAMA; i++) {
-        for(int j=0; j < 5; j++) {
-                torol(&szemelyek[i].orarend[j]);
-        }
+      }
     }
     delete[] szemelyek;
-     */
-    szemely* sz = new szemely;
-    beker(sz);   
     return 0;
 }

@@ -1,12 +1,12 @@
 #include "tanora.h"
 
 void beker(tanora* t) {
-    cout << "\nTargy neve: ";
+    cout << "Targy neve: ";
     cin.ignore();
     getline(cin, t->nev);
-    cout << "\nKezdes idopontja: ";
+    cout << "Kezdes idopontja: ";
     beker(&t->kezdes);
-    cout << "\nTanora vege: ";
+    cout << "Tanora vege: ";
     beker(&t->vege);
 }
 

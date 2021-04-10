@@ -2,10 +2,10 @@
 
 void beker(szemely* sz) {
     cout << "Nev: ";
-    cin.ignore();
     getline(cin, sz->nev);
-    cout << "\nOrarend: ";
-    for(int i=0; i<5; i++) {
+    cout << "Orarend: ";
+    for(int i=0; i<NAPOKSZAMA; i++) {
+        cout << i+1 << ". nap:\n";
         beker(&sz->orarend[i]);
     }
 }

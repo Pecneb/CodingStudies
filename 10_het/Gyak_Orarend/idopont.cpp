@@ -1,8 +1,8 @@
 #include "idopont.h"
 
 void beker(idopont* i) {
-    cout << "\nOra: "; cin >> i->ora;
-    cout << "\nPerc: "; cin >> i->perc;
+    cout << "Ora: "; cin >> i->ora;
+    cout << "Perc: "; cin >> i->perc;
 }
 
 int osszehasonlit(const idopont* ido1, const idopont* ido2) {

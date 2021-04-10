@@ -5,7 +5,6 @@
 #include "idopont.h"
 #include <iostream>
 
-
 struct nap {
     int tanoraszam;
     tanora* tanorak;
