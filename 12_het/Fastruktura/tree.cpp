@@ -19,8 +19,9 @@ void add(leaf* parent, leaf* child) {
         }
         parent->maxChildren = size;
         if(parent->children != NULL) delete[] parent->children;
+        parent->children = uj;
     }
-    szulo->children[parent->childCount] = child;
+    parent->children[parent->childCount] = child;
     parent->childCount++;
 }
 
@@ -42,12 +43,9 @@ void output(leaf* cs, int level) {
 
 void deletetree(leaf* root) {
     if(root == NULL) return;
-    else if(root->childCount > 0) {
-        for(int i=root->childCount; i != 0; i--) {
-            deletetree(root->children[i]);
-            root->childCount--;
-        }
+    for(int i=0; i< root->childCount; i++) {
+        deletetree(root->children[i]);
     }
-    delete root;
-    return;
+    delete[] root->children;
+    delete[] root;
 }
