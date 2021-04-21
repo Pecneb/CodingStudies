@@ -40,3 +40,14 @@ void output(leaf* cs, int level) {
     }
 }
 
+void deletetree(leaf* root) {
+    if(root == NULL) return;
+    else if(root->childCount > 0) {
+        for(int i=root->childCount; i != 0; i--) {
+            deletetree(root->children[i]);
+            root->childCount--;
+        }
+    }
+    delete root;
+    return;
+}
