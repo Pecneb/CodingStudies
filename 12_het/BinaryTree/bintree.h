@@ -26,5 +26,10 @@ struct morze {
 	morze* jobb;
 };
 
+struct csucs {
+	int egesz;
+	csucs* bal;
+	csucs* jobb;
+};
 
 #endif
