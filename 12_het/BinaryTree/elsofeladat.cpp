@@ -67,5 +67,6 @@ int main() {
 	
 	cout << "Ez a fa " << (kiegyensulyozott(gyoker)?"":"nem ")
 		<< " kiegyenfulyozott.\n";	
+	felszabadit(gyoker);
 	return 0;
 }
