@@ -11,6 +11,7 @@ int main(int argc, char* argv[]) {
         if(file.is_open()) {
             char c;
             while(file.get(c), !file.eof()) cout << c;
+            file.close();
         }   else {
             cerr << "Hiba a fajl megnyitasanal!";
         }
